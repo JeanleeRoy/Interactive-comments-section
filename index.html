@@ -1,26 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive comments section</title>
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Interactive comments section</title>
+
 </head>
+
 <body>
 
-  <!-- Pull dynamic content from the data.json file -->
-  
-  <div class="attribution">
+  <section id="comments" class="comments">
+
+    <div class="comment">
+      <div class="comnt">
+        <div class="comnt-info">
+          <img src="./images/avatars/image-amyrobson.png" alt="">
+          <p class="comnt-username">
+            amyrobson
+          </p>
+          <span class="comnt-date">
+            1 month ago
+          </span>
+        </div>
+        <div class="comnt-text">
+          <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've
+            nailed the design and the responsiveness at various breakpoints works really well.</p>
+        </div>
+      </div>
+      <div class="voting-detail">
+        <button class="btn vote-btn"> + </button>
+        <p>12</p>
+        <button class="btn vote-btn"> - </button>
+      </div>
+      <button class="btn reply-btn">
+        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+      </button>
+    </div>
+
+    <div class="comment">
+      <div class="comnt">
+        <div class="comnt-info">
+          <img src="./images/avatars/image-maxblagun.png" alt="">
+          <p class="comnt-username">
+            maxblagun
+          </p>
+          <span class="comnt-date">
+            2 weeks ago
+          </span>
+        </div>
+        <div class="comnt-text">
+          <p>Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to 
+            dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!</p>
+        </div>
+      </div>
+      <div class="voting-detail">
+        <button class="btn vote-btn"> + </button>
+        <p>5</p>
+        <button class="btn vote-btn"> - </button>
+      </div>
+      <button class="btn reply-btn">
+        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+      </button>
+    </div>
+
+    <div class="reply-comment">
+      <div class="comnt">
+        <div class="comnt-info">
+          <img src="./images/avatars/image-ramsesmiron.png" alt="">
+          <p class="comnt-username">
+            ramsesmiron
+          </p>
+          <span class="comnt-date">
+            1 week ago
+          </span>
+        </div>
+        <div class="comnt-text">
+          <p><span class="reply-user">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. 
+            It's very tempting to jump ahead but lay a solid foundation first.</p>
+        </div>
+      </div>
+      <div class="voting-detail">
+        <button class="btn vote-btn"> + </button>
+        <p>4</p>
+        <button class="btn vote-btn"> - </button>
+      </div>
+      <button class="btn reply-btn">
+        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+      </button>
+    </div>
+
+  </section>
+
+  <section id="my-response" class="my-response">
+
+  </section>
+
+  <!--<div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div>-->
 </body>
+
 </html>
