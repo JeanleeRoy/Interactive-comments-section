@@ -2,6 +2,33 @@
 
 .mobile-only { display: block }
 
+.comment-action {
+    position: absolute;
+    bottom: 1.3em;
+    right: 1em;
+}
+
+.comment-action .btn {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    padding: .5em 0;
+    transition: opacity ease .2s;
+}
+
+.comment-action .btn:hover {
+    opacity: 0.5;
+}
+
+.delete-btn {
+    color: var(--red);
+}
+
+.edit-btn, .reply-btn {
+    color: var(--moderate-blue);
+    margin-left: .5em;
+}
+
 .reply-container {
     position: relative;
     display: flex;
@@ -60,6 +87,16 @@
 @media (min-width: 640px) {
     .mobile-only { display: none}
     .desktop-only { display: block }
+
+    .comment-action {
+        bottom: unset;
+        top: 1.5em;
+        right: 1.5em;
+    }
+
+    .edit-btn {
+        margin-left: 1em;
+    }
 
     .reply-container {
         flex-direction: row;

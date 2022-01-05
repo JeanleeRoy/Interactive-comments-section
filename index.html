@@ -39,9 +39,11 @@
         <p>12</p>
         <button class="btn vote-btn"> - </button>
       </div>
-      <button class="btn reply-btn">
-        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-      </button>
+      <div class="comment-action">
+        <button class="btn reply-btn">
+          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+        </button>
+      </div>
     </div>
 
     <div class="comment">
@@ -65,9 +67,11 @@
         <p>5</p>
         <button class="btn vote-btn"> - </button>
       </div>
-      <button class="btn reply-btn">
-        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-      </button>
+      <div class="comment-action">
+        <button class="btn reply-btn">
+          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+        </button>
+      </div>
     </div>
 
     <div class="reply-comment">
@@ -91,14 +95,49 @@
         <p>4</p>
         <button class="btn vote-btn"> - </button>
       </div>
-      <button class="btn reply-btn">
-        <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-      </button>
+      <div class="comment-action">
+        <button class="btn reply-btn">
+          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+        </button>
+    </div>
+    </div>
+
+    <div class="reply-comment">
+      <div class="comnt">
+        <div class="comnt-info">
+          <img src="./images/avatars/image-juliusomo.png" alt="">
+          <p class="comnt-username">
+            juliusomo
+            <span class="active-user">you</span>
+          </p>
+          <span class="comnt-date">
+            2 days ago
+          </span>
+        </div>
+        <div class="comnt-text">
+          <p><span class="reply-user">@ramsesmiron</span> I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest 
+            library/ framework. But the fundamentals are what stay constant.</p>
+        </div>
+      </div>
+      <div class="voting-detail">
+        <button class="btn vote-btn"> + </button>
+        <p>2</p>
+        <button class="btn vote-btn"> - </button>
+      </div>
+      <div class="comment-action">
+        <button class="btn delete-btn">
+          <img src="images/icon-delete.svg" alt="">&nbsp; Delete
+        </button>
+        <button class="btn edit-btn">
+          <img src="images/icon-edit.svg" alt="">&nbsp; Edit
+        </button>
+      </div>
     </div>
 
   </section>
 
   <section id="my-reply" class="my-reply">
+
     <div class="reply-container">
       <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
       <textarea placeholder="Add a comment..." rows="3"></textarea>
@@ -107,6 +146,7 @@
         <button class="btn">SEND</button>
       </div>
     </div>
+
   </section>
 
   <!--<div class="attribution">

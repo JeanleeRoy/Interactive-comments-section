@@ -8,6 +8,7 @@
     --soft-red: hsl(238, 40%, 52%);
     --light-grayish-blue: hsl(239, 57%, 85%);
     --pale-red: hsl(357, 100%, 86%);
+    --red: hsl(358, 79%, 66%);
 
     --dark-blue: hsl(212, 24%, 26%);
     --grayish-blue: hsl(211, 10%, 45%);
@@ -95,6 +96,18 @@ body {
     color: var(--dark-blue);
 }
 
+.active-user {
+    display: inline-block;
+    background-color: var(--moderate-blue);
+    color: var(--white);
+    font-size: 13px;
+    padding: .1em .5em .2em;
+    font-weight: 400;
+    border-radius: 3px;
+    margin-left: .4em;
+    transform: translateY(-.1em);
+}
+
 .comnt-text {
     line-height: 1.5em;
 }
@@ -137,21 +150,6 @@ body {
     color: var(--moderate-blue);
 }
 
-.reply-btn {
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
-    padding: .7em 0;
-    color: var(--moderate-blue);
-    font-weight: 500;
-    font-size: 17px;
-    transition: .2s all ease;
-}
-
-.reply-btn:hover {
-    opacity: 0.5;
-}
-
 .reply-user {
     color: var(--moderate-blue);
     font-weight: 700;
@@ -182,13 +180,6 @@ body {
         height: fit-content;
         margin-right: 1.5em;
         padding: 0 .2em;
-    }
-
-    .reply-btn {
-        bottom: unset;
-        top: 1.3em;
-        right: 1.5em;
-        font-size: 16px;
     }
 
 }
