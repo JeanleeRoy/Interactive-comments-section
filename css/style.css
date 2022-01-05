@@ -30,7 +30,7 @@ body {
     padding: 4em 0;
 }
 
-.comments, .my-reply {
+.comments, .active-user-reply {
     width: 100%;
     max-width: 750px;
     margin: auto;
@@ -58,11 +58,13 @@ body {
     background-color: var(--very-light-gray);
 }
 
-.reply-comment {
+.reply-comment,
+.reply-container.sub-reply {
     margin-left: 1.2em;
 }
 
-.reply-comment::before {
+.reply-comment::before,
+.reply-container.sub-reply::before {
     content: "";
     position: absolute;
     bottom: .6em;
@@ -74,6 +76,7 @@ body {
 
 .comnt {
     margin-bottom: 1em;
+    width: 100%;
 }
 
 .comnt-info {
@@ -110,6 +113,7 @@ body {
 
 .comnt-text {
     line-height: 1.5em;
+    width: 100%;
 }
 
 .voting-detail {
@@ -138,6 +142,12 @@ body {
     cursor: pointer;
 }
 
+button:disabled,
+button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
 .vote-btn {
     color: var(--light-grayish-blue);
     padding: .7em;
@@ -163,11 +173,13 @@ body {
         padding: 1.5em;
     }
 
-    .reply-comment {
+    .reply-comment,
+    .reply-container.sub-reply {
         margin-left: 5em;
     }
 
-    .reply-comment::before {
+    .reply-comment::before,
+    .reply-container.sub-reply::before {
         left: -2.4em;
     }
 

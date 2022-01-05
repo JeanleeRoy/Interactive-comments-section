@@ -39,7 +39,13 @@
     color: var(--grayish-blue);
 }
 
-.reply-container textarea {
+.comments .reply-container {
+    margin-bottom: .5em;
+    transform: translateY(-.5em);
+}
+
+.reply-container textarea,
+.comnt textarea {
     width: 100%;
     resize: none;
     overflow: auto;
@@ -53,11 +59,13 @@
     transition: border ease .2s;
 }
 
-.reply-container textarea:focus {
+.reply-container textarea:focus,
+.comnt textarea:focus {
     border: 1px solid var(--grayish-blue);
 }
 
-.reply-container textarea::placeholder {
+.reply-container textarea::placeholder,
+.comnt textarea::placeholder {
     color: var(--grayish-blue);
     opacity: 1;
 }
@@ -70,8 +78,10 @@
     margin-top: 1em;
 }
 
-.reply-action .btn {
-    padding: .9em 1.8em;
+.reply-action .btn,
+.update-btn {
+    width: 100px;
+    padding: .9em 0;
     background-color: var(--moderate-blue);
     color: var(--white);
     font-weight: 500;
@@ -79,10 +89,15 @@
     transition: all ease .2s;
 }
 
-.reply-action .btn:hover {
+.reply-action .btn:hover,
+.update-btn:hover {
     background-color: var(--light-grayish-blue);
 }
 
+.update-btn {
+    float: right;
+    margin-top: .75em;
+}
 
 @media (min-width: 640px) {
     .mobile-only { display: none}
@@ -90,12 +105,13 @@
 
     .comment-action {
         bottom: unset;
-        top: 1.5em;
-        right: 1.5em;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 17px;
     }
 
     .edit-btn {
-        margin-left: 1em;
+        margin-left: 1.3em;
     }
 
     .reply-container {
