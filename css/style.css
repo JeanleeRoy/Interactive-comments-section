@@ -26,13 +26,14 @@
 
 body {
     background-color: var(--very-light-gray);
+    padding: 4em 0;
 }
 
-.comments {
+.comments, .my-reply {
     width: 100%;
     max-width: 750px;
-    margin: 3rem auto;
-    padding: 1em;
+    margin: auto;
+    padding: 0 1em;
 }
 
 .comment, .reply-comment {
@@ -63,7 +64,7 @@ body {
 .reply-comment::before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: .6em;
     left: -1em;
     height: calc(100% + 1em);
     border-left: 2px solid var(--light-gray);
@@ -148,7 +149,7 @@ body {
 }
 
 .reply-btn:hover {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .reply-user {
