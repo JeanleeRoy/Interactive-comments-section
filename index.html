@@ -18,6 +18,34 @@
 
   <section id="comments" class="comments">
 
+    <template id="comment-template">
+      <div class="comment">
+        <div class="comnt">
+          <div class="comnt-info">
+            <img src="" >
+            <p class="comnt-username">
+              
+            </p>
+            <span class="comnt-date">
+              
+            </span>
+          </div>
+          <div class="comnt-text">
+            <p class="comnt-txt">  </p>
+          </div>
+        </div>
+        <div class="voting-detail">
+          <button class="btn vote-btn"> + </button>
+          <p class="vote-number">  </p>
+          <button class="btn vote-btn"> - </button>
+        </div>
+        <div class="comment-action">
+          
+        </div>
+      </div>
+
+    </template>
+
     <div class="comment">
       <div class="comnt">
         <div class="comnt-info">
@@ -46,7 +74,7 @@
       </div>
     </div>
 
-    <div class="reply-box">
+    <div class="reply-box" style="display: none;">
       <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
       <textarea placeholder="Add a comment..." rows="3"></textarea>
       <div class="reply-action">
@@ -122,7 +150,7 @@
         </div>
       </div>
 
-      <div class="reply-box">
+      <div class="reply-box" style="display: none;">
         <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
         <textarea placeholder="Add a comment..." rows="3"></textarea>
         <div class="reply-action">
@@ -186,6 +214,8 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>-->
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
