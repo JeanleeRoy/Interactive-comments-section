@@ -1,3 +1,5 @@
+// require actions.js
+
 const baseURI = "https://raw.githubusercontent.com/JeanleeRoy/Interactive-comments-section/master/data.json";
 const $comments = document.getElementById("comments");
 const $comment = document.getElementById("comment-template");
@@ -18,6 +20,7 @@ function fetchComments() {
 function createComment(comnt) {
     let clone = $comment.content.cloneNode(true);
     clone.querySelector("img").src = comnt.user.image.png;
+    clone.querySelector(".comment").id = 'comnt' + comnt.id;
     clone.querySelector(".comnt-username").innerText = comnt.user.username;
     clone.querySelector(".comnt-txt").innerText = comnt.content;
     clone.querySelector(".vote-number").innerText = comnt.score;
@@ -25,44 +28,12 @@ function createComment(comnt) {
     let actionBtn = clone.querySelector(".comment-action");
 
     if (comnt.user.username === currentUser.username) {
-        clone.querySelector(".comnt-username").innerHTML += currUser();
+        clone.querySelector(".comnt-username").innerHTML += currUserTag();
         actionBtn.innerHTML = userBtns()
     } else {
-        actionBtn.innerHTML = replyBtn()
+        actionBtn.innerHTML = replyBtn(comnt.id);
     }
     return clone;
-}
-
-function replyBtn() {
-    return `
-        <button class="btn reply-btn">
-            <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-        </button>
-    `
-}
-
-function userBtns() {
-    return `
-        <button class="btn delete-btn">
-            <img src="images/icon-delete.svg" alt="">&nbsp; Delete
-        </button>
-        <button class="btn edit-btn">
-            <img src="images/icon-edit.svg" alt="">&nbsp; Edit
-        </button>
-    `
-}
-
-function atUser(comnt) {
-    return `
-        <span class="reply-user">@${comnt.replyingTo}</span> 
-        ${comnt.content}
-    `
-}
-
-function currUser() {
-    return `
-        <span class="active-user">you</span>
-    `
 }
 
 function repliesContainer(parentId) {
@@ -76,7 +47,7 @@ function renderReplies(parentComnt) {
     let container = repliesContainer(parentComnt.id);
     parentComnt.replies.forEach(comnt => {
         let comment = createComment(comnt);
-        comment.querySelector(".comnt-txt").innerHTML = atUser(comnt);
+        comment.querySelector(".comnt-txt").innerHTML = replyComnt(comnt);
         container.appendChild(comment);
     })
     $comments.appendChild(container);
