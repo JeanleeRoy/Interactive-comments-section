@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="reply-container">
+    <div class="reply-box">
       <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
       <textarea placeholder="Add a comment..." rows="3"></textarea>
       <div class="reply-action">
@@ -83,91 +83,95 @@
       </div>
     </div>
 
-    <div class="reply-container">
+    <!--div class="reply-box">
       <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
       <textarea placeholder="Add a comment..." rows="3"></textarea>
       <div class="reply-action">
         <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
         <button class="btn">REPLY</button>
       </div>
-    </div>
+    </div-->
 
-    <div class="reply-comment">
-      <div class="comnt">
-        <div class="comnt-info">
-          <img src="./images/avatars/image-ramsesmiron.png" alt="">
-          <p class="comnt-username">
-            ramsesmiron
-          </p>
-          <span class="comnt-date">
-            1 week ago
-          </span>
-        </div>
-        <div class="comnt-text">
-          <p><span class="reply-user">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. 
-            It's very tempting to jump ahead but lay a solid foundation first.</p>
-        </div>
-      </div>
-      <div class="voting-detail">
-        <button class="btn vote-btn"> + </button>
-        <p>4</p>
-        <button class="btn vote-btn"> - </button>
-      </div>
-      <div class="comment-action">
-        <button class="btn reply-btn">
-          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-        </button>
-    </div>
-    </div>
+    <div class="replies-container" id="replies-2">
 
-    <div class="reply-container sub-reply">
-      <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
-      <textarea placeholder="Add a comment..." rows="3"></textarea>
-      <div class="reply-action">
-        <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
-        <button class="btn">REPLY</button>
+      <div class="comment">
+        <div class="comnt">
+          <div class="comnt-info">
+            <img src="./images/avatars/image-ramsesmiron.png" alt="">
+            <p class="comnt-username">
+              ramsesmiron
+            </p>
+            <span class="comnt-date">
+              1 week ago
+            </span>
+          </div>
+          <div class="comnt-text">
+            <p><span class="reply-user">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. 
+              It's very tempting to jump ahead but lay a solid foundation first.</p>
+          </div>
+        </div>
+        <div class="voting-detail">
+          <button class="btn vote-btn"> + </button>
+          <p>4</p>
+          <button class="btn vote-btn"> - </button>
+        </div>
+        <div class="comment-action">
+          <button class="btn reply-btn">
+            <img src="images/icon-reply.svg" alt="">&nbsp; Reply
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="reply-comment">
-      <div class="comnt">
-        <div class="comnt-info">
-          <img src="./images/avatars/image-juliusomo.png" alt="">
-          <p class="comnt-username">
-            juliusomo
-            <span class="active-user">you</span>
-          </p>
-          <span class="comnt-date">
-            2 days ago
-          </span>
-        </div>
-        <div class="comnt-text">
-          <p style="display: none;"><span class="reply-user">@ramsesmiron</span> I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest 
-            library/ framework. But the fundamentals are what stay constant.</p>
-          <textarea placeholder="Add a comment..." rows="4">@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/ framework. But the fundamentals are what stay constant.</textarea>
-          <button class="btn update-btn">UPDATE</button>
+      <div class="reply-box">
+        <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
+        <textarea placeholder="Add a comment..." rows="3"></textarea>
+        <div class="reply-action">
+          <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
+          <button class="btn">REPLY</button>
         </div>
       </div>
-      <div class="voting-detail">
-        <button class="btn vote-btn"> + </button>
-        <p>2</p>
-        <button class="btn vote-btn"> - </button>
+
+      <div class="comment">
+        <div class="comnt">
+          <div class="comnt-info">
+            <img src="./images/avatars/image-juliusomo.png" alt="">
+            <p class="comnt-username">
+              juliusomo
+              <span class="active-user">you</span>
+            </p>
+            <span class="comnt-date">
+              2 days ago
+            </span>
+          </div>
+          <div class="comnt-text">
+            <p style="display: none;"><span class="reply-user">@ramsesmiron</span> I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest 
+              library/ framework. But the fundamentals are what stay constant.</p>
+            <textarea placeholder="Add a comment..." rows="4">@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</textarea>
+            <button class="btn update-btn">UPDATE</button>
+          </div>
+        </div>
+        <div class="voting-detail">
+          <button class="btn vote-btn"> + </button>
+          <p>2</p>
+          <button class="btn vote-btn"> - </button>
+        </div>
+        <div class="comment-action">
+          <button class="btn delete-btn">
+            <img src="images/icon-delete.svg" alt="">&nbsp; Delete
+          </button>
+          <button class="btn edit-btn" type="button" disabled>
+            <img src="images/icon-edit.svg" alt="">&nbsp; Edit
+          </button>
+        </div>
       </div>
-      <div class="comment-action">
-        <button class="btn delete-btn">
-          <img src="images/icon-delete.svg" alt="">&nbsp; Delete
-        </button>
-        <button class="btn edit-btn" type="button" disabled>
-          <img src="images/icon-edit.svg" alt="">&nbsp; Edit
-        </button>
-      </div>
+
     </div>
 
   </section>
 
   <section id="active-user-reply" class="active-user-reply">
 
-    <div class="reply-container">
+    <div class="reply-box">
       <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
       <textarea placeholder="Add a comment..." rows="3"></textarea>
       <div class="reply-action">

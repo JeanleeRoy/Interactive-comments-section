@@ -48,28 +48,16 @@ body {
     margin-bottom: 1em;
 }
 
-.comment::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 1em;
-    bottom: -1rem;
-    left: 0;
-    background-color: var(--very-light-gray);
-}
-
-.reply-comment,
-.reply-container.sub-reply {
+.replies-container {
+    position: relative;
     margin-left: 1.2em;
 }
 
-.reply-comment::before,
-.reply-container.sub-reply::before {
+.replies-container::before {
     content: "";
     position: absolute;
-    bottom: .6em;
     left: -1em;
-    height: calc(100% + 1em);
+    height: calc(100% - 1rem);
     border-left: 2px solid var(--light-gray);
     z-index: -1;
 }
@@ -173,13 +161,11 @@ button[disabled] {
         padding: 1.5em;
     }
 
-    .reply-comment,
-    .reply-container.sub-reply {
+    .replies-container {
         margin-left: 5em;
     }
 
-    .reply-comment::before,
-    .reply-container.sub-reply::before {
+    .replies-container::before {
         left: -2.4em;
     }
 
