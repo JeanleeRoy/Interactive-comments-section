@@ -43,159 +43,21 @@
           
         </div>
       </div>
-
     </template>
 
-    <div class="comment">
-      <div class="comnt">
-        <div class="comnt-info">
-          <img src="./images/avatars/image-amyrobson.png" alt="">
-          <p class="comnt-username">
-            amyrobson
-          </p>
-          <span class="comnt-date">
-            1 month ago
-          </span>
-        </div>
-        <div class="comnt-text">
-          <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've
-            nailed the design and the responsiveness at various breakpoints works really well.</p>
-        </div>
-      </div>
-      <div class="voting-detail">
-        <button class="btn vote-btn"> + </button>
-        <p>12</p>
-        <button class="btn vote-btn"> - </button>
-      </div>
-      <div class="comment-action">
-        <button class="btn reply-btn">
-          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-        </button>
-      </div>
-    </div>
-
-    <div class="reply-box" style="display: none;">
-      <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
-      <textarea placeholder="Add a comment..." rows="3"></textarea>
-      <div class="reply-action">
-        <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
-        <button class="btn">REPLY</button>
-      </div>
-    </div>
-
-    <div class="comment">
-      <div class="comnt">
-        <div class="comnt-info">
-          <img src="./images/avatars/image-maxblagun.png" alt="">
-          <p class="comnt-username">
-            maxblagun
-          </p>
-          <span class="comnt-date">
-            2 weeks ago
-          </span>
-        </div>
-        <div class="comnt-text">
-          <p>Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to 
-            dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!</p>
-        </div>
-      </div>
-      <div class="voting-detail">
-        <button class="btn vote-btn"> + </button>
-        <p>5</p>
-        <button class="btn vote-btn"> - </button>
-      </div>
-      <div class="comment-action">
-        <button class="btn reply-btn">
-          <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-        </button>
-      </div>
-    </div>
-
-    <!--div class="reply-box">
-      <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
-      <textarea placeholder="Add a comment..." rows="3"></textarea>
-      <div class="reply-action">
-        <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
-        <button class="btn">REPLY</button>
-      </div>
-    </div-->
-
-    <div class="replies-container" id="replies-2">
-
-      <div class="comment">
-        <div class="comnt">
-          <div class="comnt-info">
-            <img src="./images/avatars/image-ramsesmiron.png" alt="">
-            <p class="comnt-username">
-              ramsesmiron
-            </p>
-            <span class="comnt-date">
-              1 week ago
-            </span>
-          </div>
-          <div class="comnt-text">
-            <p><span class="reply-user">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. 
-              It's very tempting to jump ahead but lay a solid foundation first.</p>
-          </div>
-        </div>
-        <div class="voting-detail">
-          <button class="btn vote-btn"> + </button>
-          <p>4</p>
-          <button class="btn vote-btn"> - </button>
-        </div>
-        <div class="comment-action">
-          <button class="btn reply-btn">
-            <img src="images/icon-reply.svg" alt="">&nbsp; Reply
-          </button>
-        </div>
-      </div>
-
-      <div class="reply-box" style="display: none;">
-        <img src="./images/avatars/image-juliusomo.png" width="40" height="40" class="desktop-only">
-        <textarea placeholder="Add a comment..." rows="3"></textarea>
-        <div class="reply-action">
-          <img src="./images/avatars/image-juliusomo.png" width="34" height="34" alt="juliusomo" class="mobile-only">
-          <button class="btn">REPLY</button>
-        </div>
-      </div>
-
-      <div class="comment">
-        <div class="comnt">
-          <div class="comnt-info">
-            <img src="./images/avatars/image-juliusomo.png" alt="">
-            <p class="comnt-username">
-              juliusomo
-              <span class="active-user">you</span>
-            </p>
-            <span class="comnt-date">
-              2 days ago
-            </span>
-          </div>
-          <div class="comnt-text">
-            <p style="display: none;"><span class="reply-user">@ramsesmiron</span> I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest 
-              library/ framework. But the fundamentals are what stay constant.</p>
-            <textarea placeholder="Add a comment..." rows="4">@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</textarea>
-            <button class="btn update-btn">UPDATE</button>
-          </div>
-        </div>
-        <div class="voting-detail">
-          <button class="btn vote-btn"> + </button>
-          <p>2</p>
-          <button class="btn vote-btn"> - </button>
-        </div>
-        <div class="comment-action">
-          <button class="btn delete-btn">
-            <img src="images/icon-delete.svg" alt="">&nbsp; Delete
-          </button>
-          <button class="btn edit-btn" type="button" disabled>
-            <img src="images/icon-edit.svg" alt="">&nbsp; Edit
-          </button>
-        </div>
-      </div>
-
-    </div>
-
   </section>
+
+  <div id="loading">
+    <center>
+      <br><br><br>
+      <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#D8587E">
+        <g fill="none" fill-rule="evenodd"> <g transform="translate(1 1)" stroke-width="2"> <circle stroke-opacity=".5" cx="18" cy="18" r="18"/> <path d="M36 18c0-9.94-8.06-18-18-18"> <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/> </path> </g> </g>
+      </svg>
+      <br>
+      <p style="color: var(--grayish-blue);">Loading...</p>
+      <br><br><br><br><br>
+    </center>
+  </div>
 
   <section id="user-coment" class="active-user-reply">
 

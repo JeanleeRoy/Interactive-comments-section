@@ -1,6 +1,7 @@
 // require comment.js and  replyAction.js
 
 const baseURI = "https://raw.githubusercontent.com/JeanleeRoy/Interactive-comments-section/master/data.json";
+const $loader = document.getElementById('loading');
 
 let currentUser = {};
 let comments = []
@@ -11,7 +12,8 @@ function fetchComments() {
     .then(data => {
         currentUser = data.currentUser;
         comments = data.comments;
-        renderComments();
+        renderComments()
+        $loader.remove();
     })
 }
 
