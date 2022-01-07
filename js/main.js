@@ -17,7 +17,7 @@ function fetchComments() {
     })
 }
 
-function createComment(comnt) {
+function createComment(comnt, parentId) {
     let clone = $comment.content.cloneNode(true);
     clone.querySelector("img").src = comnt.user.image.png;
     clone.querySelector(".comment").id = 'comnt' + comnt.id;
@@ -31,7 +31,7 @@ function createComment(comnt) {
         clone.querySelector(".comnt-username").innerHTML += currUserTag();
         actionBtn.innerHTML = userBtns()
     } else {
-        actionBtn.innerHTML = replyBtn(comnt.id);
+        actionBtn.innerHTML = replyBtn(comnt.id, parentId);
     }
     return clone;
 }
@@ -46,8 +46,8 @@ function repliesContainer(parentId) {
 function renderReplies(parentComnt) {
     let container = repliesContainer(parentComnt.id);
     parentComnt.replies.forEach(comnt => {
-        let comment = createComment(comnt);
-        comment.querySelector(".comnt-txt").innerHTML = replyComnt(comnt);
+        let comment = createComment(comnt, parentComnt.id);
+        comment.querySelector(".comnt-txt").innerHTML = replyComntText(comnt);
         container.appendChild(comment);
     })
     $comments.appendChild(container);
@@ -55,7 +55,7 @@ function renderReplies(parentComnt) {
 
 function renderComments() {
     comments.forEach(comnt => {
-        let comment = createComment(comnt);
+        let comment = createComment(comnt, comnt.id);
         $comments.appendChild(comment);
         renderReplies(comnt);
     })

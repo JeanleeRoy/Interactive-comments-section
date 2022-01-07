@@ -1,10 +1,43 @@
 
-function replyingTo(comntId = 3, parentId = 0) {
-    comntElem = document.getElementById('comnt' + comntId);
-    comntElem.insertAdjacentHTML("afterend", replyBox(comntId));
+function replyingTo(btn, comntId, parentId) {
+    btn.disabled = true;
+    const comntElem = document.getElementById('comnt' + comntId);
+    const reUser = comntElem.querySelector('.comnt-username').textContent;
+    let boxElem = replyBox(comntId, parentId, reUser);
+    comntElem.insertAdjacentHTML("afterend", boxElem);
 }
 
-function replyBox(comntId) {
+function sendReply(btn, id, parentId) {
+    const boxElem = document.getElementById('box' + id);
+    let replyText = boxElem.querySelector('textarea').value;
+    if (!replyText) return;
+    let reUser = btn.dataset.reuser;
+    document.getElementById('comnt' + id).
+        querySelector('.reply-btn').disabled = false;
+    let replyObj = replyObject(replyText, reUser, currentUser);
+    renderReplyComnt(replyObj, parentId);
+    boxElem.remove();
+}
+
+function renderReplyComnt(replyObj, parentId) {
+    const container = document.getElementById("replies" + parentId);
+    let comnt = createComment(replyObj, parentId);
+    comnt.querySelector(".comnt-txt").innerHTML = replyComntText(replyObj);
+    container.appendChild(comnt);
+}
+
+function replyObject(replyText, reUser, user) {
+    return {
+        id: Math.floor(Math.random() * 1000000),
+        content: replyText,
+        createdAt: "Today",
+        score: 0,
+        replyingTo: reUser,
+        user: user
+    }
+}
+
+function replyBox(comntId, parentId, reUser) {
     return `
         <div class="reply-box" id="box${comntId}" >
             <img src="${currentUser.image.png}" 
@@ -13,15 +46,17 @@ function replyBox(comntId) {
             <div class="reply-action">
                 <img src="${currentUser.image.png}" 
                     width="34" height="34" class="mobile-only">
-                <button class="btn">REPLY</button>
+                <button class="btn" data-reuser="${reUser}"
+                    onclick="sendReply(this, ${comntId},${parentId})" >
+                    REPLY</button>
             </div>
         </div>
     `
 }
 
-function replyBtn(comntId) {
+function replyBtn(comntId, parentId) {
     return `
-        <button class="btn reply-btn" onclick="replyingTo(${comntId})">
+        <button class="btn reply-btn" onclick="replyingTo(this, ${comntId}, ${parentId})">
             <img src="images/icon-reply.svg" alt="">&nbsp; Reply
         </button>
     `
@@ -38,7 +73,7 @@ function userBtns() {
     `
 }
 
-function replyComnt(comnt) {
+function replyComntText(comnt) {
     return `
         <span class="reply-user">@${comnt.replyingTo}</span> 
         ${comnt.content}
