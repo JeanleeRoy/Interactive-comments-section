@@ -1,3 +1,4 @@
+// require comment.js
 
 function replyingTo(btn, comntId, parentId) {
     btn.disabled = true;
@@ -5,6 +6,8 @@ function replyingTo(btn, comntId, parentId) {
     const reUser = comntElem.querySelector('.comnt-username').textContent;
     let boxElem = replyBox(comntId, parentId, reUser);
     comntElem.insertAdjacentHTML("afterend", boxElem);
+    document.querySelector('#box'+comntId).
+        querySelector('textarea').focus();
 }
 
 function sendReply(btn, id, parentId) {
@@ -63,8 +66,5 @@ function replyBtn(comntId, parentId) {
 }
 
 function replyComntText(comnt) {
-    return `
-        <span class="reply-user">@${comnt.replyingTo}</span> 
-        ${comnt.content}
-    `
+    return comntTextNode(comnt.content, comnt.replyingTo);
 }

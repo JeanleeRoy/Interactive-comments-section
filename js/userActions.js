@@ -1,47 +1,35 @@
+// require comment.js
 
 function deleteUserComnt(comntId) {
     const comnt = document.getElementById('comnt' + comntId);
     comnt.remove();
 }
 
-function editUserComnt(btn, comntId, parentId) {
+function editUserComnt(btn, comntId) {
     btn.disabled = true;
     const comnt = document.getElementById('comnt' + comntId);
     const comntArea = comnt.querySelector('.comnt-text');
     let reuser;
     let reuserElem = comntArea.querySelector('.reply-user');
-    if (reuserElem) reuser = reuserElem.textContent.slice(1);
-    reuserElem.remove();
+    if (reuserElem) {
+        reuser = reuserElem.textContent.slice(1);
+        reuserElem.remove();
+    }
     let comntText = comntArea.querySelector('p').textContent.trim();
     comntArea.textContent = '';
     comntArea.innerHTML = editBox(comntText, comntId, reuser);
+    comntArea.querySelector('textarea').focus();
 }
 
 function updateUserComnt(btn, comntId) {
     const comnt = document.getElementById('comnt' + comntId);
     const comntArea = comnt.querySelector('.comnt-text');
     let content = comntArea.querySelector('textarea').value;
-    let textElem = document.createElement('p');
-    if (btn.dataset.reuser)
-        textElem.innerHTML = `
-            <span class="reply-user">@${btn.dataset.reuser}</span>
-        `
-    textElem.innerHTML += content;
     comntArea.textContent = '';
+    let textElem = document.createElement('p');
+    textElem.innerHTML = comntTextNode(content, btn.dataset.reuser);
     comntArea.appendChild(textElem);
     comnt.querySelector('.edit-btn').disabled = false;
-}
-
-function editBox(comntText, comntId, reuser) {
-    let inReply = reuser ? `data-reuser="${reuser}"` : '';
-    if (!reuser) reuser = "";
-    return `
-        <textarea placeholder="Add a comment..." rows="4"
-            >${comntText}</textarea>
-        <button class="btn update-btn" ${inReply}
-            onclick="updateUserComnt(this, ${comntId})">
-        UPDATE</button>
-    `
 }
 
 function userBtns(comntId) {
@@ -57,9 +45,13 @@ function userBtns(comntId) {
     `
 }
 
-function currUserTag() {
+function editBox(comntText, comntId, reuser) {
+    let inReply = reuser ? `data-reuser="${reuser}"` : '';
     return `
-        <span class="active-user">you</span>
+        <textarea placeholder="Add a comment..." rows="4"
+            >${comntText}</textarea>
+        <button class="btn update-btn" ${inReply}
+            onclick="updateUserComnt(this, ${comntId})">
+        UPDATE</button>
     `
 }
-
