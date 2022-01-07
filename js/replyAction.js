@@ -62,26 +62,9 @@ function replyBtn(comntId, parentId) {
     `
 }
 
-function userBtns() {
-    return `
-        <button class="btn delete-btn">
-            <img src="images/icon-delete.svg" alt="">&nbsp; Delete
-        </button>
-        <button class="btn edit-btn">
-            <img src="images/icon-edit.svg" alt="">&nbsp; Edit
-        </button>
-    `
-}
-
 function replyComntText(comnt) {
     return `
         <span class="reply-user">@${comnt.replyingTo}</span> 
         ${comnt.content}
-    `
-}
-
-function currUserTag() {
-    return `
-        <span class="active-user">you</span>
     `
 }
