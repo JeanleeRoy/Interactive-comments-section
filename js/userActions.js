@@ -5,29 +5,24 @@ function deleteUserComnt(comntId, parentId) {
     deleteLocalComnt(comntId, parentId);
 }
 
-function editUserComnt(btn, comntId) {
-    btn.disabled = true;
-    const comnt = document.getElementById('comnt' + comntId);
-    const comntArea = comnt.querySelector('.comnt-text');
-    let reuser;
-    let reuserElem = comntArea.querySelector('.reply-user');
-    if (reuserElem) {
-        reuser = reuserElem.textContent.slice(1);
-        reuserElem.remove();
-    }
-    let comntText = comntArea.querySelector('p').textContent.trim();
+function editUserComnt(btnElem, comntId, parentId) {
+    btnElem.disabled = true;
+    const comntElem = document.getElementById('comnt' + comntId);
+    const comntArea = comntElem.querySelector('.comnt-text');
+    let comnt = getCommt(comntId, parentId);
     comntArea.textContent = '';
-    comntArea.innerHTML = editBox(comntText, comntId, reuser);
+    comntArea.innerHTML = editBox(comnt, parentId);
     comntArea.querySelector('textarea').focus();
 }
 
-function updateUserComnt(btn, comntId) {
+function updateUserComnt(btnElem, comntId, parentId) {
     const comnt = document.getElementById('comnt' + comntId);
     const comntArea = comnt.querySelector('.comnt-text');
     let content = comntArea.querySelector('textarea').value;
     comntArea.textContent = '';
+    editLocalComnt(comntId, parentId, content)
     let textElem = document.createElement('p');
-    textElem.innerHTML = comntTextNode(content, btn.dataset.reuser);
+    textElem.innerHTML = comntTextNode(content, btnElem.dataset.reuser);
     comntArea.appendChild(textElem);
     comnt.querySelector('.edit-btn').disabled = false;
 }
@@ -39,19 +34,19 @@ function userBtns(comntId, parentId) {
             <img src="images/icon-delete.svg" alt="">&nbsp; Delete
         </button>
         <button class="btn edit-btn"
-            onclick="editUserComnt(this, ${comntId})">
+            onclick="editUserComnt(this, ${comntId}, ${parentId})">
             <img src="images/icon-edit.svg" alt="">&nbsp; Edit
         </button>
     `
 }
 
-function editBox(comntText, comntId, reuser) {
-    let inReply = reuser ? `data-reuser="${reuser}"` : '';
+function editBox(comnt, parentId) {
+    let inReply = comnt.replyingTo ? `data-reuser="${comnt.replyingTo}"` : '';
     return `
         <textarea placeholder="Add a comment..." rows="4"
-            >${comntText}</textarea>
+            >${comnt.content}</textarea>
         <button class="btn update-btn" ${inReply}
-            onclick="updateUserComnt(this, ${comntId})">
+            onclick="updateUserComnt(this, ${comnt.id}, ${parentId})">
         UPDATE</button>
     `
 }

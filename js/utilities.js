@@ -65,6 +65,7 @@ function editLocalComnt(id, parentId, comntText) {
 function deleteLocalComnt(id, parentId) {
     let comments = getComments();
     let cmntIndex = comments.findIndex(cmnt => cmnt.id === parentId);
+    if (!comments[cmntIndex]) return;
     if (id === parentId) {
         comments.splice(cmntIndex, 1);
     } else {
