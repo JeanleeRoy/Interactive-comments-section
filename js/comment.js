@@ -10,13 +10,13 @@ function createComment(comnt, parentId) {
     clone.querySelector(".comnt-txt").innerText = comnt.content;
     clone.querySelector(".vote-number").innerText = comnt.score;
     clone.querySelector(".comnt-date").innerText = comnt.createdAt;
-    let actionBtn = clone.querySelector(".comment-action");
+    let actionBtns = clone.querySelector(".comment-action");
 
     if (comnt.user.username === currentUser.username) {
         clone.querySelector(".comnt-username").innerHTML += currUserTag();
-        actionBtn.innerHTML = userBtns(comnt.id)
+        actionBtns.innerHTML = userBtns(comnt.id)
     } else {
-        actionBtn.innerHTML = replyBtn(comnt.id, parentId);
+        actionBtns.innerHTML = replyBtn(comnt.id, parentId);
     }
     return clone;
 }

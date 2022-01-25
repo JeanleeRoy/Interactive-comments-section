@@ -1,4 +1,4 @@
-// require comment.js and  replyAction.js
+// require utilities.js, comment.js and replyAction.js
 
 const baseURI = "https://raw.githubusercontent.com/JeanleeRoy/Interactive-comments-section/master/data.json";
 const $loader = document.getElementById('loading');
@@ -7,12 +7,15 @@ let currentUser = {};
 let comments = []
 
 function fetchComments() {
+    $loader.style.display = 'block';
     fetch(baseURI)
     .then(res => res.json())
     .then(data => {
         currentUser = data.currentUser;
         comments = data.comments;
-        renderComments()
+        setComments(comments);
+        setCurrentUser(currentUser);
+        renderComments();
         $loader.remove();
     })
 }
@@ -42,4 +45,10 @@ function renderComments() {
     })
 }
 
-fetchComments();
+if (hasLocalContent()) {
+    comments = getComments();
+    currentUser = getCurrentUser();
+    renderComments();
+} else {
+    fetchComments();
+}
