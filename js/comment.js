@@ -26,6 +26,7 @@ function sendComent() {
     let comntText = comntArea.value;
     if (!comntText) return;
     let comntObj = comntObject(comntText, currentUser);
+    addLocalComnt(comntObj);
     let comment = createComment(comntObj, comntObj.id);
     $comments.appendChild(comment);
     comntArea.value = "";
