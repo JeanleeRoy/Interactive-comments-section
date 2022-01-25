@@ -1,8 +1,8 @@
 // require comment.js
 
-function deleteUserComnt(comntId) {
-    const comnt = document.getElementById('comnt' + comntId);
-    comnt.remove();
+function deleteUserComnt(comntId, parentId) {
+    document.getElementById('comnt' + comntId).remove();
+    deleteLocalComnt(comntId, parentId);
 }
 
 function editUserComnt(btn, comntId) {
@@ -32,10 +32,10 @@ function updateUserComnt(btn, comntId) {
     comnt.querySelector('.edit-btn').disabled = false;
 }
 
-function userBtns(comntId) {
+function userBtns(comntId, parentId) {
     return `
         <button class="btn delete-btn" 
-            onclick="deleteUserComnt(${comntId})">
+            onclick="deleteUserComnt(${comntId}, ${parentId})">
             <img src="images/icon-delete.svg" alt="">&nbsp; Delete
         </button>
         <button class="btn edit-btn"

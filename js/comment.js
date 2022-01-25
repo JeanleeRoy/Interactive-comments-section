@@ -14,7 +14,7 @@ function createComment(comnt, parentId) {
 
     if (comnt.user.username === currentUser.username) {
         clone.querySelector(".comnt-username").innerHTML += currUserTag();
-        actionBtns.innerHTML = userBtns(comnt.id)
+        actionBtns.innerHTML = userBtns(comnt.id, parentId);
     } else {
         actionBtns.innerHTML = replyBtn(comnt.id, parentId);
     }
