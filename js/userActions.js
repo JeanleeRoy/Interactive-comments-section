@@ -1,8 +1,24 @@
 // require comment.js
 
+const $modal = document.getElementById('modal-template')
+
 function deleteUserComnt(comntId, parentId) {
     document.getElementById('comnt' + comntId).remove();
     deleteLocalComnt(comntId, parentId);
+}
+
+function showModal(comntId, parentId) {
+    let clone = $modal.content.cloneNode(true);
+    let actions = clone.querySelector(".modal-actions");
+    actions.innerHTML = modalActions(comntId, parentId);
+    document.body.appendChild(clone);
+    document.body.querySelector('.no-btn').focus();
+}
+
+function closeModal(e) {
+    const elem = e.target;
+    if (!elem.classList.contains('md-close')) return;
+    document.querySelector('#del-modal').remove();
 }
 
 function editUserComnt(btnElem, comntId, parentId) {
@@ -19,6 +35,7 @@ function updateUserComnt(btnElem, comntId, parentId) {
     const comnt = document.getElementById('comnt' + comntId);
     const comntArea = comnt.querySelector('.comnt-text');
     let content = comntArea.querySelector('textarea').value;
+    if (content === '') return;
     comntArea.textContent = '';
     editLocalComnt(comntId, parentId, content)
     let textElem = document.createElement('p');
@@ -31,7 +48,7 @@ function updateUserComnt(btnElem, comntId, parentId) {
 function userBtns(comntId, parentId) {
     return `
         <button class="btn delete-btn" 
-            onclick="deleteUserComnt(${comntId}, ${parentId})">
+            onclick="showModal(${comntId}, ${parentId})">
             <img src="images/icon-delete.svg" alt="">&nbsp; Delete
         </button>
         <button class="btn edit-btn"
@@ -49,5 +66,14 @@ function editBox(comnt, parentId) {
         <button class="btn update-btn" ${inReply}
             onclick="updateUserComnt(this, ${comnt.id}, ${parentId})">
         UPDATE</button>
+    `
+}
+
+function modalActions(comntId, parentId) {
+    return `
+        <button class="btn no-btn md-close">NO, CANCEL</button>
+        <button class="btn yes-btn md-close" 
+            onclick="deleteUserComnt(${comntId}, ${parentId})" 
+        >YES, DELETE</button>
     `
 }
