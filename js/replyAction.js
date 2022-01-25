@@ -1,24 +1,25 @@
 // require comment.js
 
-function replyingTo(btn, comntId, parentId) {
-    btn.disabled = true;
+function replyingTo(btnElem, comntId, parentId) {
+    btnElem.disabled = true;
+    let comnt = getCommt(comntId, parentId);
     const comntElem = document.getElementById('comnt' + comntId);
-    const reUser = comntElem.querySelector('.comnt-username').textContent;
-    let boxElem = replyBox(comntId, parentId, reUser);
+    let boxElem = replyBox(comntId, parentId, comnt.user.username);
     comntElem.insertAdjacentHTML("afterend", boxElem);
     document.querySelector('#box'+comntId).
         querySelector('textarea').focus();
 }
 
-function sendReply(btn, id, parentId) {
+function sendReply(btnElem, id, parentId) {
     const boxElem = document.getElementById('box' + id);
     let replyText = boxElem.querySelector('textarea').value;
     if (!replyText) return;
-    let reUser = btn.dataset.reuser;
+    let reUser = btnElem.dataset.reuser;
+    let replyObj = replyObject(replyText, reUser, currentUser);
+    addLocalReply(parentId, replyObj);
+    renderReplyComnt(replyObj, parentId);
     document.getElementById('comnt' + id).
         querySelector('.reply-btn').disabled = false;
-    let replyObj = replyObject(replyText, reUser, currentUser);
-    renderReplyComnt(replyObj, parentId);
     boxElem.remove();
 }
 
@@ -50,7 +51,7 @@ function replyBox(comntId, parentId, reUser) {
                 <img src="${currentUser.image.png}" 
                     width="34" height="34" class="mobile-only">
                 <button class="btn" data-reuser="${reUser}"
-                    onclick="sendReply(this, ${comntId},${parentId})" >
+                    onclick="sendReply(this, ${comntId}, ${parentId})" >
                     REPLY</button>
             </div>
         </div>

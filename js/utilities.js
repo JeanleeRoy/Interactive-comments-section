@@ -43,8 +43,10 @@ function addLocalComnt(comnt) {
 }
 
 function addLocalReply(comntId, reply) {
-    let comnt = getCommt(comntId, comntId);
-    comnt.replies.push(reply);
+    let comments = getComments();
+    let cmntIndex = comments.findIndex(cmnt => cmnt.id === comntId);
+    comments[cmntIndex].replies.push(reply);
+    setComments(comments);
 }
 
 function editLocalComnt(id, parentId, comntText) {
