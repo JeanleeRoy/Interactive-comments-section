@@ -22,6 +22,7 @@ function updateUserComnt(btnElem, comntId, parentId) {
     comntArea.textContent = '';
     editLocalComnt(comntId, parentId, content)
     let textElem = document.createElement('p');
+    textElem.classList.add('comnt-txt');
     textElem.innerHTML = comntTextNode(content, btnElem.dataset.reuser);
     comntArea.appendChild(textElem);
     comnt.querySelector('.edit-btn').disabled = false;
