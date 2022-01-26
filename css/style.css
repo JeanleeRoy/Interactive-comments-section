@@ -114,7 +114,7 @@ body {
     white-space: pre-wrap;
 }
 
-.voting-detail {
+.vote-detail {
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -127,7 +127,7 @@ body {
     cursor: default;
 }
 
-.voting-detail p {
+.vote-detail p {
     width: 1.6em;
     text-align: center;
 }
@@ -183,7 +183,7 @@ button[disabled] {
         margin-bottom: 0;
     }
 
-    .voting-detail {
+    .vote-detail {
         flex-direction: column;
         height: fit-content;
         margin-right: 1.5em;

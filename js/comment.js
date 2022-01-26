@@ -10,7 +10,7 @@ function createComment(comnt, parentId) {
     clone.querySelector(".comment").id = 'comnt' + comnt.id;
     clone.querySelector(".comnt-username").innerText = comnt.user.username;
     clone.querySelector(".comnt-txt").innerText = comnt.content;
-    clone.querySelector(".vote-number").innerText = comnt.score;
+    clone.querySelector(".vote-detail").innerHTML = voteDetail(comnt.id, comnt.score);
     clone.querySelector(".comnt-date").innerText = showDate(comnt.createdAt);
     let actionBtns = clone.querySelector(".comment-action");
 
