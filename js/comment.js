@@ -1,3 +1,5 @@
+// require utilities.js
+
 const $comments = document.getElementById("comments");
 const $comment = document.getElementById("comment-template");
 const $boxComntElem = document.getElementById('user-coment');
@@ -9,7 +11,7 @@ function createComment(comnt, parentId) {
     clone.querySelector(".comnt-username").innerText = comnt.user.username;
     clone.querySelector(".comnt-txt").innerText = comnt.content;
     clone.querySelector(".vote-number").innerText = comnt.score;
-    clone.querySelector(".comnt-date").innerText = comnt.createdAt;
+    clone.querySelector(".comnt-date").innerText = showDate(comnt.createdAt);
     let actionBtns = clone.querySelector(".comment-action");
 
     if (comnt.user.username === currentUser.username) {
@@ -34,9 +36,9 @@ function sendComent() {
 
 function comntObject(comntText, user) {
     return {
-        id: Math.floor(Math.random() * 1000000),
+        id: genID(),
         content: comntText,
-        createdAt: "Today",
+        createdAt: moment().format(),
         score: 0,
         user: user,
         replies: []

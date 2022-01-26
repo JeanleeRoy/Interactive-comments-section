@@ -32,9 +32,9 @@ function renderReplyComnt(replyObj, parentId) {
 
 function replyObject(replyText, reUser, user) {
     return {
-        id: Math.floor(Math.random() * 1000000),
+        id: genID(),
         content: replyText,
-        createdAt: "Today",
+        createdAt: moment().format(),
         score: 0,
         replyingTo: reUser,
         user: user

@@ -1,3 +1,33 @@
+// require moment.min.js
+
+/* --- Dates --- */
+
+function showDate(date) {
+    let _date = moment(date);
+    let now = moment();
+    if (_date.isValid()) {
+        let days = now.diff(_date, "days"),
+        months = now.diff(_date, "month");
+        if (days >= 7 && months == 0) {
+            let weeks = now.diff(_date, "weeks"),
+            number = weeks > 1 ? 'weeks' : 'week';
+            return `${weeks} ${number} ago`
+        }
+        return _date.fromNow();
+    }
+    return date;
+}
+
+
+/* --- Identifiers --- */
+
+function genID() {
+    let lastId = window.localStorage.getItem('last-id');
+    if (!lastId) lastId = 13;
+    window.localStorage.setItem('last-id', ++lastId);
+    return lastId;
+}
+
 
 /* --- Local Storage --- */
 
@@ -29,6 +59,7 @@ function hasLocalContent() {
 
 function getCommt(id, parentId) {
     let comments = getComments();
+    console.log(id, parentId);
     let comnt = comments.find(cmnt => cmnt.id === parentId);
     if (id === parentId)
         return comnt;
