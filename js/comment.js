@@ -12,7 +12,7 @@ function createComment(comnt, parentId) {
     clone.querySelector(".comnt-txt").innerText = comnt.content;
     clone.querySelector(".comnt-date").innerText = showDate(comnt.createdAt);
     let voteDtl = clone.querySelector(".vote-detail");
-    voteDtl.innerHTML = voteDetail(comnt.id, parentId, comnt.score??comnt.vote.score);
+    voteDtl.innerHTML = voteDetail(comnt.id, parentId, comnt.vote);
     let actionBtns = clone.querySelector(".comment-action");
 
     if (comnt.user.username === currentUser.username) {

@@ -154,7 +154,8 @@ button[disabled] {
     transition: color .2s ease;
 }
 
-.vote-btn:hover {
+.vote-btn:hover,
+.vote-btn.active-vote {
     color: var(--moderate-blue);
 }
 

@@ -1,11 +1,15 @@
 // require utilities.js
 
 function voteUp(comntId, parentId) {
-    processVote(comntId, parentId, true);
+    let voteScore = processVote(comntId, parentId, true);
+    if (voteScore === undefined) return;
+    displayVoteDetail(comntId, voteScore, true);
 }
 
 function voteDown(comntId, parentId) {
-    processVote(comntId, parentId, false);
+    let voteScore = processVote(comntId, parentId, false);
+    if (voteScore === undefined) return;
+    displayVoteDetail(comntId, voteScore, false);
 }
 
 function processVote(comntId, parentId, like) {
@@ -15,8 +19,7 @@ function processVote(comntId, parentId, like) {
     if (alreadyVote(vote, like)) return;
     computeVote(vote, like);
     updateLocalComnt(comntId, parentId, comnt);
-    let cmtElem = document.getElementById('comnt' + comntId);
-    cmtElem.querySelector('.vote-number').innerText = vote.score;
+    return vote.score;
 }
 
 function computeVote(vote, like) {
@@ -50,10 +53,30 @@ function voteObj() {
     }
 }
 
-function voteDetail(comntId, parentId, voteNumber) {
+function displayVoteDetail(comntId, voteScore, like) {
+    let cmtElem = document.getElementById('comnt' + comntId);
+    cmtElem.querySelector('.vote-number').innerText = voteScore;
+    if (like) {
+        cmtElem.querySelector('.up-btn').classList.add('active-vote');
+        cmtElem.querySelector('.down-btn').classList.remove('active-vote');
+    } else {
+        cmtElem.querySelector('.up-btn').classList.remove('active-vote');
+        cmtElem.querySelector('.down-btn').classList.add('active-vote');
+    }
+}
+
+function voteDetail(comntId, parentId, vote) {
+    let userVote =  getUserVote(vote.detail);
+    let like, dislike;
+    if (userVote) {
+        like = userVote.upVote ? 'active-vote' : '';
+        dislike = userVote.downVote ? 'active-vote' : '';
+    }
     return `
-        <button class="btn vote-btn" onclick="voteUp(${comntId}, ${parentId})" > + </button>
-        <p class="vote-number"> ${voteNumber} </p>
-        <button class="btn vote-btn" onclick="voteDown(${comntId}, ${parentId})"> - </button>
+        <button class="btn vote-btn up-btn ${like}" 
+            onclick="voteUp(${comntId}, ${parentId})" > + </button>
+        <p class="vote-number"> ${vote.score} </p>
+        <button class="btn vote-btn down-btn ${dislike}" 
+            onclick="voteDown(${comntId}, ${parentId})"> - </button>
     `
 }
