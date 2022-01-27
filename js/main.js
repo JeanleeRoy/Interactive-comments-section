@@ -38,6 +38,7 @@ function renderReplies(parentComnt) {
 }
 
 function renderComments() {
+    comments.sort((a, b) => b.vote.score - a.vote.score);
     comments.forEach(comnt => {
         let comment = createComment(comnt, comnt.id);
         $comments.appendChild(comment);
