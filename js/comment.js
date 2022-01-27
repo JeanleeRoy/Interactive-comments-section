@@ -7,6 +7,7 @@ const $boxComntElem = document.getElementById('user-coment');
 function createComment(comnt, parentId) {
     let clone = $comment.content.cloneNode(true);
     clone.querySelector("img").src = comnt.user.image.png;
+    clone.querySelector("img").alt = comnt.user.username;
     clone.querySelector(".comment").id = 'comnt' + comnt.id;
     clone.querySelector(".comnt-username").innerText = comnt.user.username;
     clone.querySelector(".comnt-txt").innerText = comnt.content;

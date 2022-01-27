@@ -47,7 +47,7 @@ function replyObject(replyText, reUser, user) {
 function replyBox(comntId, parentId, reUser) {
     return `
         <div class="reply-box" id="box${comntId}" >
-            <img src="${currentUser.image.png}" 
+            <img src="${currentUser.image.png}" alt="${currentUser.username}" 
                 width="40" height="40" class="desktop-only">
             <textarea placeholder="Add a comment..." rows="3"></textarea>
             <div class="reply-action">
