@@ -1,6 +1,5 @@
 // require utilities.js
 
-
 function voteUp(comntId, parentId) {
     let comnt = getCommt(comntId, parentId);
     let vote = comnt.vote;
@@ -11,6 +10,8 @@ function voteUp(comntId, parentId) {
     vote.score += (1 + userVote.downVote);
     userVote.downVote = false;
     updateLocalComnt(comntId, parentId, comnt);
+    let cmtElem = document.getElementById('comnt' + comntId);
+    cmtElem.querySelector('.vote-number').innerText = vote.score;
 }
 
 function voteDown(comntId) {
