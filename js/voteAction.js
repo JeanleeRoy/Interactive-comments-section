@@ -1,21 +1,32 @@
 // require utilities.js
 
 function voteUp(comntId, parentId) {
+    processVote(comntId, parentId, true);
+}
+
+function voteDown(comntId, parentId) {
+    processVote(comntId, parentId, false);
+}
+
+function processVote(comntId, parentId, like) {
     let comnt = getCommt(comntId, parentId);
     let vote = comnt.vote;
     if (vote === undefined) return;
-    if (alreadyVote(vote, like=true)) return;
-    let userVote = getUserVote(vote.detail);
-    userVote.upVote = true;
-    vote.score += (1 + userVote.downVote);
-    userVote.downVote = false;
+    if (alreadyVote(vote, like)) return;
+    computeVote(vote, like);
     updateLocalComnt(comntId, parentId, comnt);
     let cmtElem = document.getElementById('comnt' + comntId);
     cmtElem.querySelector('.vote-number').innerText = vote.score;
 }
 
-function voteDown(comntId) {
-
+function computeVote(vote, like) {
+    let userVote = getUserVote(vote.detail);
+    let actualVote = like ? 'upVote' : 'downVote',
+    revVote = like ? 'downVote' : 'upVote',
+    score = vote.score + (like ? 1 : -1) * (1 + userVote[revVote]);
+    userVote[actualVote] = true;
+    userVote[revVote] = false;
+    vote.score = score;
 }
 
 function getUserVote(votes) {
@@ -43,6 +54,6 @@ function voteDetail(comntId, parentId, voteNumber) {
     return `
         <button class="btn vote-btn" onclick="voteUp(${comntId}, ${parentId})" > + </button>
         <p class="vote-number"> ${voteNumber} </p>
-        <button class="btn vote-btn" onclick="voteDown(${comntId})"> - </button>
+        <button class="btn vote-btn" onclick="voteDown(${comntId}, ${parentId})"> - </button>
     `
 }
