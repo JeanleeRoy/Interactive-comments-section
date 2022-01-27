@@ -59,7 +59,6 @@ function hasLocalContent() {
 
 function getCommt(id, parentId) {
     let comments = getComments();
-    console.log(id, parentId);
     let comnt = comments.find(cmnt => cmnt.id === parentId);
     if (id === parentId)
         return comnt;
@@ -89,6 +88,19 @@ function editLocalComnt(id, parentId, comntText) {
         let replies = comments[cmntIndex].replies;
         let replyIndex = replies.findIndex(reply => reply.id === id);
         comments[cmntIndex].replies[replyIndex].content = comntText;
+    }
+    setComments(comments);
+}
+
+function updateLocalComnt(id, parentId, comnt) {
+    let comments = getComments();
+    let cmntIndex = comments.findIndex(cmnt => cmnt.id === parentId);
+    if (id === parentId) {
+        comments[cmntIndex] = comnt;
+    } else {
+        let replies = comments[cmntIndex].replies;
+        let replyIndex = replies.findIndex(reply => reply.id === id);
+        comments[cmntIndex].replies[replyIndex] = comnt;
     }
     setComments(comments);
 }

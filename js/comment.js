@@ -10,8 +10,9 @@ function createComment(comnt, parentId) {
     clone.querySelector(".comment").id = 'comnt' + comnt.id;
     clone.querySelector(".comnt-username").innerText = comnt.user.username;
     clone.querySelector(".comnt-txt").innerText = comnt.content;
-    clone.querySelector(".vote-detail").innerHTML = voteDetail(comnt.id, comnt.score);
     clone.querySelector(".comnt-date").innerText = showDate(comnt.createdAt);
+    let voteDtl = clone.querySelector(".vote-detail");
+    voteDtl.innerHTML = voteDetail(comnt.id, parentId, comnt.score??comnt.vote.score);
     let actionBtns = clone.querySelector(".comment-action");
 
     if (comnt.user.username === currentUser.username) {
@@ -39,7 +40,10 @@ function comntObject(comntText, user) {
         id: genID(),
         content: comntText,
         createdAt: moment().format(),
-        score: 0,
+        vote: {
+            score: 0,
+            detail: []
+        },
         user: user,
         replies: []
     }

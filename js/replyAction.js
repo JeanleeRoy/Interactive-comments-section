@@ -35,7 +35,10 @@ function replyObject(replyText, reUser, user) {
         id: genID(),
         content: replyText,
         createdAt: moment().format(),
-        score: 0,
+        vote: {
+            score: 0,
+            detail: []
+        },
         replyingTo: reUser,
         user: user
     }
